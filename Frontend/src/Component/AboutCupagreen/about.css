@@ -1,0 +1,30 @@
+.aboutSection {
+  margin-top: 2rem;
+}
+
+.aboutContainer {
+  display: flex;
+  align-items: stretch; /* Ensures both items stretch to the same height */
+}
+
+.aboutContent,
+.aboutImage {
+  flex: 1; /* Allows both sections to take equal width */
+  /* padding: 2rem; */
+  color: white;
+}
+
+.aboutContent {
+  background: var(--color-grey-11, #1e1d19);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 0rem 0rem 1rem;
+}
+
+.aboutImage img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    aspect-ratio: 2; 
+}

@@ -1,0 +1,27 @@
+.productStand {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+.circle-image {
+  width: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: rotate 5s linear infinite;
+}
+
+.animated-rotate {
+  animation: rotate 5s linear infinite;
+}
+
+.animated-rotate-two {
+  animation: rotate 7s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

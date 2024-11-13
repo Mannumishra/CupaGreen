@@ -1,0 +1,28 @@
+.hero {
+  background-image: url(../../Images/Section.png);
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.productCard_hero {
+  max-width: 100%;
+  margin: auto;
+  position: relative;
+  top: -65px;
+}
+
+.productCard {
+  background: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.productCard h5 {
+  margin-bottom: 0;
+}
+.productCard p {
+  font-size: 14px;
+}
+
+

@@ -1,0 +1,90 @@
+@media only screen and (max-width: 768px) {
+  .navbar {
+    padding: 0;
+  }
+  .navbarLogo {
+    width: 150px;
+    height: auto;
+  }
+  .hero {
+    height: 35vh;
+  }
+  .productCard_hero {
+    top: -40px;
+  }
+  .productCard {
+    padding: 5px;
+    border-radius: 0rem;
+    text-align: center;
+  }
+  .productCard h5 {
+    font-size: 12px;
+  }
+  .productCard p {
+    font-size: 10px;
+    margin-bottom: 0;
+  }
+  .product_title {
+    font-size: 10px;
+  }
+  .bynowBtn {
+    font-size: 10px;
+  }
+  .aboutContainer {
+    display: block;
+  }
+  .counterUp h2 {
+    margin-bottom: 2rem;
+  }
+  .our_gallery {
+    padding: 3rem 1rem;
+  }
+  .footerOverlay {
+    padding: 0rem;
+  }
+  .footermb {
+    margin-top: 1rem;
+  }
+  .footerOverlay h4 {
+    padding-bottom: 0;
+  }
+  .breadOverlay {
+    padding: 2rem 2rem;
+  }
+  .allTabsBtn {
+    font-size: 10px;
+    padding: 3px 5px;
+    margin: 0;
+  }
+  .cutlery{
+    margin-top: 0;
+  }
+  .allbackgrounds {
+    padding: 1rem 0rem;
+  }
+  .productDetailsContent{
+    margin-top: 2rem;
+  }
+  .presenting{
+    margin-top: 1rem;
+  }
+  .productStand {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media only screen and (min-width: 768px), (max-width: 900) {
+  .hero {
+    height: 80vh;
+  }
+}
+
+@media only screen and (min-width: 900px), (max-width: 1400) {
+  .hero {
+    height: 100vh;
+  }
+  .page-content{
+    margin-top: 6rem;
+  }
+}

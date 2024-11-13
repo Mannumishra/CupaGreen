@@ -1,0 +1,10 @@
+.productDetail_social_media {
+  display: flex;
+  justify-content:first baseline;
+  gap: 1rem;
+}
+
+.productDetail_social_media .socialMedia {
+  gap: 0.5rem;
+  display: flex;
+}

@@ -1,0 +1,48 @@
+.our_gallery {
+  padding: 4rem 4rem;
+}
+
+.slider-container {
+  margin: 20px auto; /* Center the slider and add vertical space */
+}
+
+.gallery-item {
+  padding: 10px; /* Space around each image */
+}
+
+.gallery-item img {
+  border-radius: 8px; /* Optional: Add some rounded corners to images */
+  transition: transform 0.3s; /* Smooth transform on hover */
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.gallerybtnright {
+  position: absolute;
+  right: -1%;
+  top: 45%;
+  z-index: 1;
+}
+.gallerybtnright .btn,
+.gallerybtnleft .btn {
+  background-color: var(--color-greeen);
+  color: white;
+}
+
+.gallerybtnleft {
+  position: absolute;
+  left: -1%;
+  top: 45%;
+  z-index: 1;
+}
+
+/* Optional media queries for further customization */
+@media (max-width: 1024px) {
+  .gallery-item {
+    padding: 5px; /* Less padding for smaller screens */
+  }
+}
