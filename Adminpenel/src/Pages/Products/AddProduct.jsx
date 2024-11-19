@@ -19,11 +19,11 @@ const AddProduct = () => {
 
     // Fetch categories and subcategories from the backend
     useEffect(() => {
-        axios.get('http://localhost:8000/api/get-category')
+        axios.get('https://www.api.cupagreen.com/api/get-category')
             .then(response => setCategories(response.data))
             .catch(error => console.error("Error fetching categories:", error));
 
-        axios.get('http://localhost:8000/api/get-subcategories')
+        axios.get('https://www.api.cupagreen.com/api/get-subcategories')
             .then(response => setSubcategories(response.data))
             .catch(error => console.error("Error fetching subcategories:", error));
     }, []);
@@ -58,16 +58,17 @@ const AddProduct = () => {
         }
 
         setIsLoading(true);
-        axios.post('http://localhost:8000/api/create-product', formData)
+        axios.post('https://www.api.cupagreen.com/api/create-product', formData)
             .then(response => {
                 toast.success("Product added successfully");
                 setIsLoading(false);
                 navigate("/all-products");
+                console.log(response)
             })
             .catch(error => {
                 console.log(error);
-                toast.error(error.response.data.message);
-                setIsLoading(false);
+                // toast.error(error.response.data.message);
+                setIsLoading(true);
             });
     };
 

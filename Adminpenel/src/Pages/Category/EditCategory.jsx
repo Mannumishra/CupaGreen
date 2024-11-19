@@ -14,7 +14,7 @@ const EditCategory = () => {
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/get-category/${id}`); // Update the endpoint as per your backend
+                const response = await axios.get(`https://www.api.cupagreen.com/api/get-category/${id}`); // Update the endpoint as per your backend
                 setCategory({
                     name: response.data.name,
                     cateStatus: response.data.cateStatus === "True" // Convert string to boolean
@@ -41,7 +41,7 @@ const EditCategory = () => {
         setBtnLoading(true);
         
         try {
-            await axios.put(`http://localhost:8000/api/update-category/${id}`, {
+            await axios.put(`https://www.api.cupagreen.com/api/update-category/${id}`, {
                 name: category.name,
                 cateStatus: category.cateStatus ? "True" : "False" // Convert boolean to string
             });

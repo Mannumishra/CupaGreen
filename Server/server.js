@@ -11,7 +11,13 @@ const ProductInqueryRouter = require("./Routes/ProductInqueryRouter")
 const ContactRouter = require("./Routes/ContactRouter")
 
 const app = express()
-app.use(cors())
+// CORS Configuration
+const corsOptions = {
+    origin: ["http://localhost:3001", "https://www.api.cupagreen.com"],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json())
 
 app.set(express.static("./Public"))

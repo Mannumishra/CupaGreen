@@ -11,7 +11,7 @@ function AllProducts() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/get-category");
+        const response = await axios.get("https://www.api.cupagreen.com/api/get-category");
         setCategories(response.data);
       } catch (error) {
         console.error("Error fetching categories:", error);
@@ -20,7 +20,7 @@ function AllProducts() {
 
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/get-product");
+        const response = await axios.get("https://www.api.cupagreen.com/api/get-product");
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -50,7 +50,7 @@ function AllProducts() {
                     <div key={item._id} className="col-md-4 col-6 mb-2">
                       <div className="card rounded text-center overflow-hidden border-0 shadow" style={{ maxWidth: "100%" }}>
                         <img
-                          src={`http://localhost:8000/${item.productImage}`} // Ensure this path is correct for image rendering
+                          src={`https://www.api.cupagreen.com/${item.productImage}`} // Ensure this path is correct for image rendering
                           className="card-img-top" style={{aspectRatio:1.2 ,objectFit:"cover"}}
                           alt={item.productName}
                         />

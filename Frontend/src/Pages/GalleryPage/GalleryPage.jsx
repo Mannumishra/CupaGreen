@@ -10,7 +10,7 @@ const GalleryPage = () => {
   // Fetch category data from API
   const getCateData = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/get-category");
+      const res = await axios.get("https://www.api.cupagreen.com/api/get-category");
       setAllCate(res.data);
     } catch (error) {
       console.log(error);
@@ -20,7 +20,7 @@ const GalleryPage = () => {
   // Fetch product data from API
   const getProData = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/get-product");
+      const res = await axios.get("https://www.api.cupagreen.com/api/get-product");
       setAllProduct(res.data);
     } catch (error) {
       console.log(error);
@@ -82,7 +82,7 @@ const GalleryPage = () => {
             {filteredImages.map((image) => (
               <div className="col-6 col-md-4 col-lg-3 mb-4" key={image._id}>
                 <div className="card">
-                  <img src={`http://localhost:8000/${image.productImage}`} className="card-img-top" style={{aspectRatio:1.2 ,objectFit:"cover"}} alt={image.name} />
+                  <img src={`https://www.api.cupagreen.com/${image.productImage}`} className="card-img-top" style={{aspectRatio:1.2 ,objectFit:"cover"}} alt={image.name} />
                 </div>
               </div>
             ))}

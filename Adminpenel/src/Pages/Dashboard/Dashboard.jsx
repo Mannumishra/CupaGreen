@@ -16,12 +16,12 @@ const Dashboard = () => {
 
   const fetchDashboardData = async () => {
     try {
-      const categoryRes = await axios.get('http://localhost:8000/api/get-category');
+      const categoryRes = await axios.get('https://www.api.cupagreen.com/api/get-category');
       console.log(categoryRes)
-      const subcategoryRes = await axios.get('http://localhost:8000/api/get-subcategories');
-      const productRes = await axios.get('http://localhost:8000/api/get-product');
-      const productEnquiryRes = await axios.get('http://localhost:8000/api/get-inquery');
-      const contactEnquiryRes = await axios.get('http://localhost:8000/api/get-contact-inquery');
+      const subcategoryRes = await axios.get('https://www.api.cupagreen.com/api/get-subcategories');
+      const productRes = await axios.get('https://www.api.cupagreen.com/api/get-product');
+      const productEnquiryRes = await axios.get('https://www.api.cupagreen.com/api/get-inquery');
+      const contactEnquiryRes = await axios.get('https://www.api.cupagreen.com/api/get-contact-inquery');
       
       setCategories(categoryRes.data.length);
       setSubcategories(subcategoryRes.data.length);

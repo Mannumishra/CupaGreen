@@ -20,7 +20,7 @@ const ContactEnquery = () => {
     // Fetch all inquiries
     const fetchInquiries = async () => {
         try {
-            const res = await axios.get('http://localhost:8000/api/get-contact-inquery');
+            const res = await axios.get('https://www.api.cupagreen.com/api/get-contact-inquery');
             setInquiries(res.data); // Set the response data
             setFilteredInquiries(res.data); // Initialize filtered inquiries with all data
         } catch (error) {
@@ -55,7 +55,7 @@ const ContactEnquery = () => {
     const updateInquiryStatus = async (inquiryId, currentStatus) => {
         try {
             const newStatus = currentStatus === 'Pending' ? 'Complete' : 'Pending'; // Toggle status
-            await axios.put(`http://localhost:8000/api/update-contact-inquery/${inquiryId}`, { inquiryStatus: newStatus });
+            await axios.put(`https://www.api.cupagreen.com/api/update-contact-inquery/${inquiryId}`, { inquiryStatus: newStatus });
 
             // Update the status locally to reflect the change
             const updatedInquiries = inquiries.map((inquiry) =>

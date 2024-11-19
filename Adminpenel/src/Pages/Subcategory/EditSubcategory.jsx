@@ -15,7 +15,7 @@ const EditSubcategory = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/get-category'); // Fetch categories
+                const response = await axios.get('https://www.api.cupagreen.com/api/get-category'); // Fetch categories
                 setCategories(response.data); // Set categories
             } catch (error) {
                 toast.error("Failed to load categories");
@@ -28,7 +28,7 @@ const EditSubcategory = () => {
     useEffect(() => {
         const fetchSubcategory = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/get-subcategories/${id}`); // Fetch subcategory by ID
+                const response = await axios.get(`https://www.api.cupagreen.com/api/get-subcategories/${id}`); // Fetch subcategory by ID
                 setSubcategory({
                     name: response.data.name,
                     cateStatus: response.data.cateStatus === "True", // Convert string to boolean
@@ -56,7 +56,7 @@ const EditSubcategory = () => {
         setBtnLoading(true);
         
         try {
-            await axios.put(`http://localhost:8000/api/update-subcategories/${id}`, {
+            await axios.put(`https://www.api.cupagreen.com/api/update-subcategories/${id}`, {
                 name: subcategory.name,
                 cateStatus: subcategory.cateStatus ? "True" : "False", // Convert boolean to string
                 categoryId: subcategory.categoryId // Send the selected category ID

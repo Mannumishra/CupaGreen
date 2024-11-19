@@ -9,7 +9,7 @@ const Allproducts = () => {
 
   const getCateData = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/get-category");
+      const res = await axios.get("https://www.api.cupagreen.com/api/get-category");
       setAllCate(res.data);
     } catch (error) {
       console.log(error);
@@ -18,7 +18,7 @@ const Allproducts = () => {
 
   const getProData = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/get-product");
+      const res = await axios.get("https://www.api.cupagreen.com/api/get-product");
       setAllProduct(res.data);
     } catch (error) {
       console.log(error);
@@ -81,7 +81,7 @@ const Allproducts = () => {
                 <div className="card rounded text-center overflow-hidden border-0 shadow">
                   <Link to={`/product-details/${product.productName}`}>
                     <img
-                      src={`http://localhost:8000/${product.productImage}`} // Assuming productImage is the path
+                      src={`https://www.api.cupagreen.com/${product.productImage}`} // Assuming productImage is the path
                       className="card-img-top" style={{aspectRatio:1.2 ,objectFit:"cover"}}
                       alt={product.productName}
                     />

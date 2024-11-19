@@ -22,7 +22,7 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/api/send-contact-inquery", formData)
+      const res = await axios.post("https://www.api.cupagreen.com/api/send-contact-inquery", formData)
       if (res.status === 201) {
         Swal.fire({
           icon: "success",

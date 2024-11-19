@@ -20,7 +20,7 @@ const AllProductEnquery = () => {
     // Fetch all inquiries
     const fetchInquiries = async () => {
         try {
-            const res = await axios.get('http://localhost:8000/api/get-inquery');
+            const res = await axios.get('https://www.api.cupagreen.com/api/get-inquery');
             setInquiries(res.data); // Set the response data
             setFilteredInquiries(res.data); // Initialize filtered inquiries with all data
         } catch (error) {
@@ -55,7 +55,7 @@ const AllProductEnquery = () => {
     const updateInquiryStatus = async (inquiryId, currentStatus) => {
         try {
             const newStatus = currentStatus === 'Pending' ? 'Complete' : 'Pending'; // Toggle status
-            await axios.put(`http://localhost:8000/api/update-inquery/${inquiryId}`, { inquiryStatus: newStatus });
+            await axios.put(`https://www.api.cupagreen.com/api/update-inquery/${inquiryId}`, { inquiryStatus: newStatus });
 
             // Update the status locally to reflect the change
             const updatedInquiries = inquiries.map((inquiry) =>
@@ -114,10 +114,10 @@ const AllProductEnquery = () => {
                                         <th scope="row">{index + 1}</th>
                                         <td>{inquiry?.productId?.productName || ""}</td> {/* Product Name */}
                                         <td>
-                                            <img 
-                                                src={`http://localhost:8000/${inquiry?.productId?.productImage}`} 
-                                                alt={inquiry?.productId?.productName || ""} 
-                                                width="50" 
+                                            <img
+                                                src={`https://www.api.cupagreen.com/${inquiry?.productId?.productImage}`}
+                                                alt={inquiry?.productId?.productName || ""}
+                                                width="50"
                                             />
                                         </td> {/* Product Image */}
                                         <td>{inquiry.name}</td>
@@ -127,8 +127,8 @@ const AllProductEnquery = () => {
                                         <td>{inquiry.query}</td>
                                         <td>{formatDate(new Date(inquiry.createdAt))}</td> {/* Display Date in dd/mm/yyyy format */}
                                         <td>
-                                            <button 
-                                                className={`btn ${inquiry.inquiryStatus === 'Pending' ? 'btn-warning' : 'btn-success'}`} 
+                                            <button
+                                                className={`btn ${inquiry.inquiryStatus === 'Pending' ? 'btn-warning' : 'btn-success'}`}
                                                 onClick={() => updateInquiryStatus(inquiry._id, inquiry.inquiryStatus)}
                                                 disabled={inquiry.inquiryStatus === 'Complete'} // Disable the button if status is 'Complete'
                                             >
