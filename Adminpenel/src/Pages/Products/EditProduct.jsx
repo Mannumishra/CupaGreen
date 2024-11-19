@@ -25,17 +25,17 @@ const EditProduct = () => {
     const [existingImage, setExistingImage] = useState('');
 
     useEffect(() => {
-        axios.get('https://www.api.cupagreen.com/api/get-category')
+        axios.get('https://api.cupagreen.com/api/get-category')
             .then(response => setCategories(response.data))
             .catch(error => console.error("Error fetching categories:", error));
 
-        axios.get('https://www.api.cupagreen.com/api/get-subcategories')
+        axios.get('https://api.cupagreen.com/api/get-subcategories')
             .then(response => setSubcategories(response.data))
             .catch(error => console.error("Error fetching subcategories:", error));
     }, []);
 
     useEffect(() => {
-        axios.get(`https://www.api.cupagreen.com/api/get-product/${id}`)
+        axios.get(`https://api.cupagreen.com/api/get-product/${id}`)
             .then(response => {
                 const data = response.data;
                 setProduct({
@@ -80,7 +80,7 @@ const EditProduct = () => {
         }
 
         setIsLoading(true);
-        axios.put(`https://www.api.cupagreen.com/api/update-product/${id}`, formData)
+        axios.put(`https://api.cupagreen.com/api/update-product/${id}`, formData)
             .then(response => {
                 toast.success("Product updated successfully");
                 setIsLoading(false);

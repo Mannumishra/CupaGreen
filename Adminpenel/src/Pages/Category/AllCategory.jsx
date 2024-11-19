@@ -12,7 +12,7 @@ const AllCategory = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('https://www.api.cupagreen.com/api/get-category'); // Update the endpoint as per your backend
+                const response = await axios.get('https://api.cupagreen.com/api/get-category'); // Update the endpoint as per your backend
                 setCategories(response.data);
             } catch (error) {
                 toast.error("Failed to load categories");
@@ -35,7 +35,7 @@ const AllCategory = () => {
 
         if (confirmDelete.isConfirmed) {
             try {
-                await axios.delete(`https://www.api.cupagreen.com/api/delete-category/${id}`); // Update the endpoint as per your backend
+                await axios.delete(`https://api.cupagreen.com/api/delete-category/${id}`); // Update the endpoint as per your backend
                 setCategories(categories.filter(category => category._id !== id));
                 toast.success("Category deleted successfully");
             } catch (error) {

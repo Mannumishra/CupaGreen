@@ -12,7 +12,7 @@ const AllSubcategory = () => {
     useEffect(() => {
         const fetchSubcategories = async () => {
             try {
-                const response = await axios.get('https://www.api.cupagreen.com/api/get-subcategories'); // Update the endpoint to fetch subcategories
+                const response = await axios.get('https://api.cupagreen.com/api/get-subcategories'); // Update the endpoint to fetch subcategories
                 setSubcategories(response.data);
             } catch (error) {
                 toast.error("Failed to load subcategories");
@@ -35,7 +35,7 @@ const AllSubcategory = () => {
 
         if (confirmDelete.isConfirmed) {
             try {
-                await axios.delete(`https://www.api.cupagreen.com/api/delete-subcategories/${id}`); // Update the endpoint as per your backend
+                await axios.delete(`https://api.cupagreen.com/api/delete-subcategories/${id}`); // Update the endpoint as per your backend
                 setSubcategories(subcategories.filter(subcategory => subcategory._id !== id));
                 toast.success("Subcategory deleted successfully");
             } catch (error) {

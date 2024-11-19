@@ -22,7 +22,7 @@ const ProductDetails = () => {
   // Fetch product data
   const getApiData = async () => {
     try {
-      const res = await axios.get(`https://www.api.cupagreen.com/api/get-product-by-name/${productname}`);
+      const res = await axios.get(`https://api.cupagreen.com/api/get-product-by-name/${productname}`);
       console.log(res)
       setProductData(res.data); 
       setFormData((prevData) => ({
@@ -58,7 +58,7 @@ const ProductDetails = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("https://www.api.cupagreen.com/api/send-inquery", formData);
+      const response = await axios.post("https://api.cupagreen.com/api/send-inquery", formData);
       if (response.status===201) {
         setSuccess(true);
         setFormData({
@@ -105,7 +105,7 @@ const ProductDetails = () => {
           <div className="row" style={{ alignItems: "center" }}>
             <div className="col-md-5">
               <img
-                src={`https://www.api.cupagreen.com/${productData.productImage || "default-image.png"}`} // Dynamic product image
+                src={`https://api.cupagreen.com/${productData.productImage || "default-image.png"}`} // Dynamic product image
                 className="w-100"
                 alt="product Image"
               />

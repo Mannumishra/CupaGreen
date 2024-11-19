@@ -15,7 +15,7 @@ const Papercup = () => {
 
   const getApiData = async () => {
     try {
-      const res = await axios.get("https://www.api.cupagreen.com/api/get-subcategories");
+      const res = await axios.get("https://api.cupagreen.com/api/get-subcategories");
       const newData = res.data;
       const filterData = newData.filter((x) => x.category.name === CategoryName);
       setSubcateData(filterData);
@@ -26,7 +26,7 @@ const Papercup = () => {
 
   const getProductData = async () => {
     try {
-      const res = await axios.get("https://www.api.cupagreen.com/api/get-product");
+      const res = await axios.get("https://api.cupagreen.com/api/get-product");
       const products = res.data;
 
       // Filter products based on the CategoryName from URL and selected subcategory
@@ -94,7 +94,7 @@ const Papercup = () => {
                 <div className="card rounded text-center overflow-hidden border-0 shadow">
                   <Link to={`/product-details/${image.productName}`}>
                     <img
-                      src={`https://www.api.cupagreen.com/${image.productImage}`}
+                      src={`https://api.cupagreen.com/${image.productImage}`}
                       className="card-img-top" style={{aspectRatio:1.2 ,objectFit:"cover"}}
                       alt="Item"
                     />

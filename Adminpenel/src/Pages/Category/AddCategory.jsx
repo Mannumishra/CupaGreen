@@ -15,7 +15,7 @@ const AddCategory = () => {
         setIsLoading(true);
         
         try {
-            const response = await axios.post('https://www.api.cupagreen.com/api/create-category', { name, cateStatus: cateStatus ? "True" : "False" });
+            const response = await axios.post('https://api.cupagreen.com/api/create-category', { name, cateStatus: cateStatus ? "True" : "False" });
             toast.success(response.data.message);
             navigate('/all-category');
         } catch (error) {

@@ -11,7 +11,7 @@ function Header() {
 
   const getApidata = async () => {
     try {
-      const res = await axios.get("https://www.api.cupagreen.com/api/get-category")
+      const res = await axios.get("https://api.cupagreen.com/api/get-category")
       setData(res.data)
     } catch (error) {
       console.log(error)

@@ -16,7 +16,7 @@ const AddSubcategory = () => {
         // Fetch categories to populate the dropdown
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('https://www.api.cupagreen.com/api/get-category');
+                const response = await axios.get('https://api.cupagreen.com/api/get-category');
                 setCategories(response.data);
             } catch (error) {
                 toast.error("Failed to load categories");
@@ -30,7 +30,7 @@ const AddSubcategory = () => {
         setIsLoading(true);
 
         try {
-            const response = await axios.post('https://www.api.cupagreen.com/api/create-subcategories', {
+            const response = await axios.post('https://api.cupagreen.com/api/create-subcategories', {
                 name,
                 categoryId,
                 subCateStatus: subCateStatus ? "True" : "False"

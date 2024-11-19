@@ -13,7 +13,7 @@ const AllProduct = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('https://www.api.cupagreen.com/api/get-product'); // Replace with your actual endpoint
+                const response = await axios.get('https://api.cupagreen.com/api/get-product'); // Replace with your actual endpoint
                 console.log(response)
                 setProducts(response.data);
                 setLoading(false); // Stop loading when data is fetched
@@ -40,7 +40,7 @@ const AllProduct = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await axios.delete(`https://www.api.cupagreen.com/api/delete-product/${productId}`); // Replace with your actual endpoint
+                    await axios.delete(`https://api.cupagreen.com/api/delete-product/${productId}`); // Replace with your actual endpoint
                     setProducts(products.filter((product) => product._id !== productId)); // Remove the product from state
                     Swal.fire('Deleted!', 'Your product has been deleted.', 'success');
                 } catch (error) {
@@ -104,7 +104,7 @@ const AllProduct = () => {
                                     <td>{product.productSubDetails}</td>
                                     <td dangerouslySetInnerHTML={{ __html: product.productDetails }}></td>
                                     <td>
-                                        <img src={`https://www.api.cupagreen.com/${product.productImage}`} alt={product.productName} width="50" height="50" />
+                                        <img src={`https://api.cupagreen.com/${product.productImage}`} alt={product.productName} width="50" height="50" />
                                     </td>
                                     <td>
                                         <Link to={`/edit-product/${product._id}`} className="bt edit">

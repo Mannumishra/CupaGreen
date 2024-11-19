@@ -20,7 +20,7 @@ const AllProductEnquery = () => {
     // Fetch all inquiries
     const fetchInquiries = async () => {
         try {
-            const res = await axios.get('https://www.api.cupagreen.com/api/get-inquery');
+            const res = await axios.get('https://api.cupagreen.com/api/get-inquery');
             setInquiries(res.data); // Set the response data
             setFilteredInquiries(res.data); // Initialize filtered inquiries with all data
         } catch (error) {
@@ -55,7 +55,7 @@ const AllProductEnquery = () => {
     const updateInquiryStatus = async (inquiryId, currentStatus) => {
         try {
             const newStatus = currentStatus === 'Pending' ? 'Complete' : 'Pending'; // Toggle status
-            await axios.put(`https://www.api.cupagreen.com/api/update-inquery/${inquiryId}`, { inquiryStatus: newStatus });
+            await axios.put(`https://api.cupagreen.com/api/update-inquery/${inquiryId}`, { inquiryStatus: newStatus });
 
             // Update the status locally to reflect the change
             const updatedInquiries = inquiries.map((inquiry) =>
@@ -115,7 +115,7 @@ const AllProductEnquery = () => {
                                         <td>{inquiry?.productId?.productName || ""}</td> {/* Product Name */}
                                         <td>
                                             <img
-                                                src={`https://www.api.cupagreen.com/${inquiry?.productId?.productImage}`}
+                                                src={`https://api.cupagreen.com/${inquiry?.productId?.productImage}`}
                                                 alt={inquiry?.productId?.productName || ""}
                                                 width="50"
                                             />
