@@ -112,11 +112,11 @@ const AllProductEnquery = () => {
                                 filteredInquiries.map((inquiry, index) => (
                                     <tr key={inquiry._id}>
                                         <th scope="row">{index + 1}</th>
-                                        <td>{inquiry.productId.productName || ""}</td> {/* Product Name */}
+                                        <td>{inquiry?.productId?.productName || ""}</td> {/* Product Name */}
                                         <td>
                                             <img 
-                                                src={`http://localhost:8000/${inquiry.productId.productImage}`} 
-                                                alt={inquiry.productId.productName || ""} 
+                                                src={`http://localhost:8000/${inquiry?.productId?.productImage}`} 
+                                                alt={inquiry?.productId?.productName || ""} 
                                                 width="50" 
                                             />
                                         </td> {/* Product Image */}
