@@ -40,36 +40,35 @@ const AddProduct = () => {
         setFilteredSubcategories(filtered);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData();
-        const productName = e.target.productName.value;
-        const productSubDetails = e.target.productSubDetails.value;
-        const category = e.target.category.value;
-        const subcategory = e.target.subcategory.value;
+        try {
+            const formData = new FormData();
+            const productName = e.target.productName.value;
+            const productSubDetails = e.target.productSubDetails.value;
+            const category = e.target.category.value;
+            const subcategory = e.target.subcategory.value;
 
-        formData.append('productName', productName);
-        formData.append('productSubDetails', productSubDetails);
-        formData.append('productDetails', productDetails); // Use state for product details
-        formData.append('category', category);
-        formData.append('subcategory', subcategory);
-        if (productImage) {
-            formData.append('productImage', productImage);
+            formData.append('productName', productName);
+            formData.append('productSubDetails', productSubDetails);
+            formData.append('productDetails', productDetails); // Use state for product details
+            formData.append('category', category);
+            formData.append('subcategory', subcategory);
+            if (productImage) {
+                formData.append('productImage', productImage);
+            }
+
+            setIsLoading(true);
+            const response = await axios.post('https://api.cupagreen.com/api/create-product', formData)
+            toast.success("Product added successfully");
+            setIsLoading(false);
+            navigate("/all-products");
+            console.log(response)
+        } catch (error) {
+            console.log(error);
+            // toast.error(error.response.data.message);
+            setIsLoading(true);
         }
-
-        setIsLoading(true);
-        axios.post('https://api.cupagreen.com/api/create-product', formData)
-            .then(response => {
-                toast.success("Product added successfully");
-                setIsLoading(false);
-                navigate("/all-products");
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error);
-                // toast.error(error.response.data.message);
-                setIsLoading(true);
-            });
     };
 
     return (
