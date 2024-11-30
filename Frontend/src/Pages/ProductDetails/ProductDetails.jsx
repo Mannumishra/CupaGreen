@@ -9,7 +9,7 @@ const ProductDetails = () => {
   const [productData, setProductData] = useState(null);
 
   const [formData, setFormData] = useState({
-    productId:'',
+    productId: '',
     name: '',
     email: '',
     phone: '',
@@ -24,10 +24,10 @@ const ProductDetails = () => {
     try {
       const res = await axios.get(`https://api.cupagreen.com/api/get-product-by-name/${productname}`);
       console.log(res)
-      setProductData(res.data); 
+      setProductData(res.data);
       setFormData((prevData) => ({
         ...prevData,
-        productId: res.data._id, 
+        productId: res.data._id,
       }));
     } catch (error) {
       console.log(error);
@@ -59,7 +59,7 @@ const ProductDetails = () => {
     setLoading(true);
     try {
       const response = await axios.post("https://api.cupagreen.com/api/send-inquery", formData);
-      if (response.status===201) {
+      if (response.status === 201) {
         setSuccess(true);
         setFormData({
           name: '',
@@ -67,9 +67,9 @@ const ProductDetails = () => {
           phone: '',
           subject: '',
           query: ''
-        }); 
-         // Show success message with SweetAlert2
-         Swal.fire({
+        });
+        // Show success message with SweetAlert2
+        Swal.fire({
           title: "Success!",
           text: "Your enquiry has been sent successfully!",
           icon: "success",

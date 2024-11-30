@@ -157,15 +157,16 @@ exports.getProductById = async (req, res) => {
 
 exports.getProductByName = async (req, res) => {
     const { productname } = req.params;
-    // console.log(productname)
+    console.log("Product Name", productname)
     try {
-        const product = await Product.findOne({ productName: productname })
+        const product = await Product.find()
             .populate("category", "name") // Populate category name
             .populate("subcategory", "name"); // Populate subcategory name
         if (!product) {
             return res.status(404).json({ message: "Product not found" });
         }
-        res.status(200).json(product);
+        const filterProduct = product.find((x) => x.productName.trim().toLowerCase() === productname.trim().toLowerCase())
+        res.status(200).json(filterProduct);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Error fetching product", error });
