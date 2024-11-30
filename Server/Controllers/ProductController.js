@@ -58,11 +58,11 @@ exports.createProduct = async (req, res) => {
         });
 
         const savedProduct = await newProduct.save();
-        res.status(201).json(savedProduct); 
+        res.status(201).json(savedProduct);
 
     } catch (error) {
         console.error(error);
-        if (fs.existsSync(req.file.path)) deleteFile(req.file.path)  
+        if (fs.existsSync(req.file.path)) deleteFile(req.file.path)
         res.status(500).json({ message: "Error creating product", error });
     }
 };
@@ -86,6 +86,48 @@ exports.getAllProducts = async (req, res) => {
     }
 };
 
+exports.getAllProductsByCategoryName = async (req, res) => {
+    try {
+        const { categoryName } = req.params
+        const products = await Product.find()
+            .populate("category") // Populate category name
+            .populate("subcategory"); // Populate subcategory name
+        if (!products) {
+            return res.status(404).json({
+                success: false,
+                message: "REcord Not Found"
+            })
+        }
+        const filterProduct = products.filter((x) => x.category.name === categoryName)
+        res.status(200).json(filterProduct.reverse());
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error fetching products", error });
+    }
+};
+
+exports.getAllProductsBySubCategoryName = async (req, res) => {
+    try {
+        const { subcategoryName } = req.params
+        console.log(subcategoryName)
+        const products = await Product.find()
+            .populate("category") // Populate category name
+            .populate("subcategory"); // Populate subcategory name
+        if (!products) {
+            return res.status(404).json({
+                success: false,
+                message: "REcord Not Found"
+            })
+        }
+        const filterProduct = products.filter((x) => x.subcategory.name === subcategoryName)
+        res.status(200).json(filterProduct.reverse());
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error fetching products", error });
+    }
+};
+
+
 exports.getProductById = async (req, res) => {
     const { id } = req.params;
 
@@ -107,7 +149,7 @@ exports.getProductByName = async (req, res) => {
     const { productname } = req.params;
     // console.log(productname)
     try {
-        const product = await Product.findOne({productName:productname})
+        const product = await Product.findOne({ productName: productname })
             .populate("category", "name") // Populate category name
             .populate("subcategory", "name"); // Populate subcategory name
         if (!product) {
@@ -123,7 +165,7 @@ exports.getProductByName = async (req, res) => {
 exports.updateProduct = async (req, res) => {
     const { id } = req.params;
     const { category, subcategory, productName, productSubDetails, productDetails } = req.body;
-    
+
     try {
         const existingProduct = await Product.findById(id);
         if (!existingProduct) {
@@ -131,7 +173,7 @@ exports.updateProduct = async (req, res) => {
         }
 
         let updatedImagePath = existingProduct.productImage;
-        
+
         if (req.file) {
             deleteFile(existingProduct.productImage);
             updatedImagePath = req.file.path;

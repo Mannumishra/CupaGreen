@@ -51,7 +51,7 @@ const AddCategory = () => {
                             required
                         />
                     </div>
-                    {/* <div className="col-12">
+                    <div className="col-12">
                         <div className="form-check">
                             <input 
                                 className="form-check-input" 
@@ -65,7 +65,7 @@ const AddCategory = () => {
                                 Active in Homepage
                             </label>
                         </div>
-                    </div> */}
+                    </div>
                     <div className="col-12 text-center">
                         <button type="submit" disabled={isLoading} className={`${isLoading ? 'not-allowed' : 'allowed'}`}>
                             {isLoading ? "Please Wait..." : "Add Category"}

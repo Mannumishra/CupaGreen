@@ -62,7 +62,7 @@ const AllCategory = () => {
                         <tr>
                             <th scope="col">Sr.No.</th>
                             <th scope="col">Name</th>
-                            {/* <th scope="col">Show in Home Page</th> */}
+                            <th scope="col">Show in Home Page</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
@@ -73,7 +73,7 @@ const AllCategory = () => {
                                 <tr key={category._id}>
                                     <th scope="row">{index + 1}</th>
                                     <td>{category.name}</td>
-                                    {/* <td>{category.cateStatus === "True" ? "Yes" : "No"}</td> */}
+                                    <td>{category.cateStatus === "True" ? "Yes" : "No"}</td>
                                     <td>
                                         <Link to={`/edit-category/${category._id}`} className="bt edit">
                                             Edit <i className="fa-solid fa-pen-to-square"></i>

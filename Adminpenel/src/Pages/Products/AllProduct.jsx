@@ -82,8 +82,8 @@ const AllProduct = () => {
                             <th scope="col">Category</th>
                             <th scope="col">Subcategory</th>
                             <th scope="col">Product Name</th>
-                            <th scope="col">Product Sub Details</th>
-                            <th scope="col">Product Details</th>
+                            {/* <th scope="col">Product Sub Details</th>
+                            <th scope="col">Product Details</th> */}
                             <th scope="col">Product Image</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
@@ -98,11 +98,11 @@ const AllProduct = () => {
                             products.map((product, index) => (
                                 <tr key={product._id}>
                                     <th scope="row">{index + 1}</th>
-                                    <td>{product.category.name}</td> {/* This should display the category name */}
-                                    <td>{product.subcategory.name}</td> {/* This should display the subcategory name */}
-                                    <td>{product.productName}</td>
-                                    <td>{product.productSubDetails}</td>
-                                    <td dangerouslySetInnerHTML={{ __html: product.productDetails }}></td>
+                                    <td>{product?.category?.name}</td> {/* This should display the category name */}
+                                    <td>{product?.subcategory?.name}</td> {/* This should display the subcategory name */}
+                                    <td>{product?.productName}</td>
+                                    {/* <td>{product?.productSubDetails}</td>
+                                    <td dangerouslySetInnerHTML={{ __html: product.productDetails }}></td> */}
                                     <td>
                                         <img src={`https://api.cupagreen.com/${product.productImage}`} alt={product.productName} width="50" height="50" />
                                     </td>

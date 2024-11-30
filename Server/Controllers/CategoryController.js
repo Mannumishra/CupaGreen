@@ -5,7 +5,7 @@ const Category = require("../Models/CategoryModel");
 exports.createCategory = async (req, res) => {
     try {
         let { name, cateStatus } = req.body;
-        
+
         if (!name) {
             return res.status(400).json({
                 success: false,
@@ -62,7 +62,7 @@ exports.updateCategory = async (req, res) => {
     try {
         const { id } = req.params;
         let { name, cateStatus } = req.body;
-        
+
         if (name) {
             name = name.toUpperCase();
         }

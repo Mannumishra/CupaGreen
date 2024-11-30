@@ -1,61 +1,63 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import image2 from "../../Images/containers2.png";
 import axios from "axios";
 
 const Papercup = () => {
   const [activeTab, setActiveTab] = useState("All");
   const { CategoryName } = useParams();
-  console.log(CategoryName)
   const [subcateData, setSubcateData] = useState([]);
-  const [productData, setProductData] = useState([]); // Store filtered products
+  const [productData, setProductData] = useState([]);
 
-  const handleTabClick = (tab) => {
+  const handleTabClick = async (tab) => {
     setActiveTab(tab);
+
+    if (tab === "All") {
+      // Fetch all category-related products
+      await fetchProductsByCategory(CategoryName);
+    } else {
+      // Fetch subcategory-related products
+      await fetchProductsBySubCategory(tab);
+    }
   };
 
-  useEffect(() => {
-    const getApiData = async () => {
-      try {
-        const res = await axios.get("https://api.cupagreen.com/api/get-subcategories/by-categoryname/" + CategoryName);
-        console.log(res)
-        setSubcateData(res.data)
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getApiData()
-  }, [CategoryName])
-
-  const getProductData = async () => {
+  const fetchProductsByCategory = async (category) => {
     try {
-      const res = await axios.get("https://api.cupagreen.com/api/get-product");
-      const products = res.data;
-
-      // Filter products based on the CategoryName from URL and selected subcategory
-      const filteredProducts = products.filter((product) => {
-        // Check if the product category matches the CategoryName from URL
-        const matchesCategory = product.category.name === CategoryName;
-
-        // If "All" is selected, return products that match the category
-        // If a specific subcategory is selected, filter by both category and subcategory
-        return activeTab === "All"
-          ? matchesCategory
-          : matchesCategory && product.subcategory.name === activeTab;
-      });
-
-      setProductData(filteredProducts);
+      const res = await axios.get(
+        `https://api.cupagreen.com/api/get-product/by-categoryname/${category}`
+      );
+      setProductData(res.data);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching category products:", error);
+    }
+  };
+
+  const fetchProductsBySubCategory = async (subcategory) => {
+    try {
+      const res = await axios.get(
+        `https://api.cupagreen.com/api/get-product/by-subcategoryname/${subcategory}`
+      );
+      setProductData(res.data);
+    } catch (error) {
+      console.error("Error fetching subcategory products:", error);
     }
   };
 
   useEffect(() => {
-    // getApiData();
-    getProductData();
-  }, [CategoryName, activeTab]); // Re-fetch data when CategoryName or activeTab changes
+    // Fetch subcategories on load
+    const fetchSubCategories = async () => {
+      try {
+        const res = await axios.get(
+          `https://api.cupagreen.com/api/get-subcategories/by-categoryname/${CategoryName}`
+        );
+        setSubcateData(res.data);
+      } catch (error) {
+        console.error("Error fetching subcategories:", error);
+      }
+    };
 
-  // console.log(productData); // Check filtered products
+    fetchSubCategories();
+    fetchProductsByCategory(CategoryName); // Load all products by default
+  }, [CategoryName]);
 
   return (
     <>
@@ -73,7 +75,8 @@ const Papercup = () => {
         <div className="container my-4">
           <div className="gap-2 d-flex mb-4">
             <button
-              className={`btn btn-outline-success allTabsBtn ${activeTab === "All" ? "active" : ""}`}
+              className={`btn btn-outline-success allTabsBtn ${activeTab === "All" ? "active" : ""
+                }`}
               onClick={() => handleTabClick("All")}
             >
               All Cups
@@ -81,15 +84,14 @@ const Papercup = () => {
             {subcateData.map((item, index) => (
               <button
                 key={index}
-                className={`btn btn-outline-success allTabsBtn ${activeTab === item.name ? "active" : ""}`}
+                className={`btn btn-outline-success allTabsBtn ${activeTab === item.name ? "active" : ""
+                  }`}
                 onClick={() => handleTabClick(item.name)}
               >
                 {item.name}
               </button>
             ))}
           </div>
-
-          {/* Image Gallery */}
 
           <div className="row">
             {productData.map((image) => (
@@ -98,7 +100,8 @@ const Papercup = () => {
                   <Link to={`/product-details/${image.productName}`}>
                     <img
                       src={`https://api.cupagreen.com/${image.productImage}`}
-                      className="card-img-top" style={{ aspectRatio: 1.2, objectFit: "cover" }}
+                      className="card-img-top"
+                      style={{ aspectRatio: 1.2, objectFit: "cover" }}
                       alt="Item"
                     />
                   </Link>
