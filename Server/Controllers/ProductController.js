@@ -88,17 +88,27 @@ exports.getAllProducts = async (req, res) => {
 
 exports.getAllProductsByCategoryName = async (req, res) => {
     try {
-        const { categoryName } = req.params
+        const { categoryName } = req.params;
+        console.log("ProductCategoryName", categoryName);
+
         const products = await Product.find()
             .populate("category") // Populate category name
             .populate("subcategory"); // Populate subcategory name
+
         if (!products) {
             return res.status(404).json({
                 success: false,
-                message: "REcord Not Found"
-            })
+                message: "Record Not Found",
+            });
         }
-        const filterProduct = products.filter((x) => x.category.name === categoryName)
+
+        console.log("Product Data", products);
+
+        // Normalize the category names by trimming spaces
+        const filterProduct = products.filter(
+            (x) => x.category.name.trim().toLowerCase() === categoryName.trim().toLowerCase()
+        );
+
         res.status(200).json(filterProduct.reverse());
     } catch (error) {
         console.error(error);
@@ -109,7 +119,7 @@ exports.getAllProductsByCategoryName = async (req, res) => {
 exports.getAllProductsBySubCategoryName = async (req, res) => {
     try {
         const { subcategoryName } = req.params
-        console.log(subcategoryName)
+        console.log("Productsubcategoryname", subcategoryName)
         const products = await Product.find()
             .populate("category") // Populate category name
             .populate("subcategory"); // Populate subcategory name
@@ -119,7 +129,7 @@ exports.getAllProductsBySubCategoryName = async (req, res) => {
                 message: "REcord Not Found"
             })
         }
-        const filterProduct = products.filter((x) => x.subcategory.name === subcategoryName)
+        const filterProduct = products.filter((x) => x.subcategory.name.trim().toLowerCase() === subcategoryName.trim().toLowerCase())
         res.status(200).json(filterProduct.reverse());
     } catch (error) {
         console.error(error);
