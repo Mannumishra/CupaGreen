@@ -6,6 +6,7 @@ import axios from "axios";
 const Papercup = () => {
   const [activeTab, setActiveTab] = useState("All");
   const { CategoryName } = useParams();
+  console.log(CategoryName)
   const [subcateData, setSubcateData] = useState([]);
   const [productData, setProductData] = useState([]); // Store filtered products
 
@@ -13,16 +14,18 @@ const Papercup = () => {
     setActiveTab(tab);
   };
 
-  const getApiData = async () => {
-    try {
-      const res = await axios.get("https://api.cupagreen.com/api/get-subcategories");
-      const newData = res.data;
-      const filterData = newData.filter((x) => x.category.name === CategoryName);
-      setSubcateData(filterData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  useEffect(() => {
+    const getApiData = async () => {
+      try {
+        const res = await axios.get("https://api.cupagreen.com/api/get-subcategories/by-categoryname/" + CategoryName);
+        console.log(res)
+        setSubcateData(res.data)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getApiData()
+  }, [CategoryName])
 
   const getProductData = async () => {
     try {
@@ -48,11 +51,11 @@ const Papercup = () => {
   };
 
   useEffect(() => {
-    getApiData();
+    // getApiData();
     getProductData();
   }, [CategoryName, activeTab]); // Re-fetch data when CategoryName or activeTab changes
 
-  console.log(productData); // Check filtered products
+  // console.log(productData); // Check filtered products
 
   return (
     <>
@@ -95,7 +98,7 @@ const Papercup = () => {
                   <Link to={`/product-details/${image.productName}`}>
                     <img
                       src={`https://api.cupagreen.com/${image.productImage}`}
-                      className="card-img-top" style={{aspectRatio:1.2 ,objectFit:"cover"}}
+                      className="card-img-top" style={{ aspectRatio: 1.2, objectFit: "cover" }}
                       alt="Item"
                     />
                   </Link>

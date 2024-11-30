@@ -9,8 +9,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import GalleryPage from "./Pages/GalleryPage/GalleryPage";
 import Papercup from "./Pages/PaperCups/Papercup";
-import Container from "./Pages/Containers/Container";
-import Cutlery from "./Pages/Cutlery/Cutlery";
 import Allproducts from "./Pages/AllProducts/Allproducts";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import './AllMediaQuery.css'
@@ -23,7 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/:CategoryName" element={<Papercup />} />
+          <Route path="/Category/:CategoryName" element={<Papercup />} />
           {/* <Route path="/containers" element={<Container />} />
           <Route path="/cutlery" element={<Cutlery />} /> */}
           <Route path="/all-products" element={<Allproducts/>} />

@@ -46,12 +46,28 @@ exports.getAllSubCategories = async (req, res) => {
     }
 };
 
+// Controller to fetch all subcategories with their associated categories
+exports.getAllSubCategoriesByCategoryName = async (req, res) => {
+    try {
+        const { categoryName } = req.params;
+        const subCategories = await SubCategory.find().populate("category", "name cateStatus");
+        const filterData = subCategories.filter((x) =>
+            x.category.name.trim().toLowerCase() === categoryName.trim().toLowerCase()
+        );
+        res.status(200).json(filterData.reverse());
+    } catch (error) {
+        console.error("Error fetching subcategories:", error);
+        res.status(500).json({ message: "Error fetching subcategories", error });
+    }
+};
+
+
 exports.getSubCategoryById = async (req, res) => {
     const { id } = req.params; // Get the subcategory ID from the request params
     try {
         // Find subcategory by ID and populate category with only 'name' and 'cateStatus'
         const subCategory = await SubCategory.findById(id).populate("category", "name cateStatus");
-        
+
         if (!subCategory) {
             return res.status(404).json({ message: "Subcategory not found" });
         }

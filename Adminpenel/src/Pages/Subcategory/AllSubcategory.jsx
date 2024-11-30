@@ -64,7 +64,7 @@ const AllSubcategory = () => {
                             <th scope="col">Sr.No.</th>
                             <th scope="col">Subcategory Name</th>
                             <th scope="col">Category</th>
-                            <th scope="col">Show in Home Page</th>
+                            {/* <th scope="col">Show in Home Page</th> */}
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
@@ -76,7 +76,7 @@ const AllSubcategory = () => {
                                     <th scope="row">{index + 1}</th>
                                     <td>{subcategory.name}</td>
                                     <td>{subcategory.category ? subcategory.category.name : "No Category"}</td>
-                                    <td>{subcategory.subCateStatus === "True" ? "Yes" : "No"}</td>
+                                    {/* <td>{subcategory.subCateStatus === "True" ? "Yes" : "No"}</td> */}
                                     <td>
                                         <Link to={`/edit-subcategory/${subcategory._id}`} className="bt edit">
                                             Edit <i className="fa-solid fa-pen-to-square"></i>

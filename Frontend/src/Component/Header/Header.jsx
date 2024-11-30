@@ -22,7 +22,7 @@ function Header() {
     getApidata()
   }, [])
 
-  console.log(data)
+
   // Function to close the navbar when a link is clicked
   const handleNavLinkClick = () => {
     const navbarCollapse = document.getElementById("navbarNav");
@@ -69,7 +69,7 @@ function Header() {
             {
               data.map((item, index) =>
                 <li className="nav-item">
-                  <Link className="nav-link" to={`/${item.name}`} onClick={handleNavLinkClick}>
+                  <Link className="nav-link" to={`/Category/${item.name}`} onClick={handleNavLinkClick}>
                     {item.name}
                   </Link>
                 </li>
