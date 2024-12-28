@@ -50,7 +50,7 @@ function AllProducts() {
                 <h2>{category.name}</h2>
                 <div className="row">
                   {categoryProducts.splice(0, 6).map((item) => (
-                    <div key={item._id} className="col-md-4 col-6 mb-2" style={{ cursor: "pointer" }} onClick={() => navigate(`/Category/${category.name}`)}>
+                    <div key={item._id} className="col-md-4 col-6 mb-2" style={{ cursor: "pointer" }} onClick={() => navigate(`/product-details/${item.productName}`)}>
                       <div className="card rounded text-center overflow-hidden border-0 shadow" style={{ maxWidth: "100%" }}>
                         <img
                           src={`https://api.cupagreen.com/${item.productImage}`} // Ensure this path is correct for image rendering
