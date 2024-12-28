@@ -1,0 +1,78 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.modal-dialog {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modal-content img {
+    height: auto;
+    width: 100%;
+    max-height: 80vh; /* Ensure the image does not overflow vertically */
+    object-fit: contain;
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 50px;
+    color: #000;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .modal-dialog {
+        width: 95%;
+        height: auto;
+    }
+
+    .modal-content img {
+        max-height: 60vh; /* Reduce image size on smaller screens */
+    }
+
+    .modal .close {
+        font-size: 25px; /* Smaller close button for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-dialog {
+        width: 100%;
+        height: auto;
+    }
+
+    .modal-content img {
+        max-height: 50vh; /* Further reduce image size on very small screens */
+    }
+
+    .modal .close {
+        font-size: 20px; /* Even smaller close button for very small screens */
+    }
+}

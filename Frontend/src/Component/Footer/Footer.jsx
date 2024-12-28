@@ -41,11 +41,15 @@ const Footer = () => {
 
               {/* Contact Information */}
               <div className="col-md-3 footermb">
-                <h4>All Contacts</h4>
-                <p>111 8th Ave, New York, U.S.A</p>
-                <p>Office: +123-555-0153</p>
-                <p>Email: lorem@ipsum.com</p>
-                <p>08 am - 06 pm Sunday closed</p>
+                <h4>Contacts Info</h4>
+                <p> <strong>Head Office :</strong> 143, DDA Market, Rajouri Garden, Opposite Surya Grand Hotel, New Delhi-110027</p>
+                <p><strong>Registered Office :</strong> W-17, Rajouri Garden, New Delhi-110027</p>
+                <p><strong>Contact:</strong> <br />  <a href="tel:+918700819378" style={{ textDecoration: "none", color: "white" }}>+91-8700819378</a> /
+                  <a href="tel:+919811303100" style={{ textDecoration: "none", color: "white" }}>9811303100</a></p>
+                <p> <strong>Office Contact :</strong> <a href="tel:+911145520997" style={{ textDecoration: "none", color: "white" }}>011-4552-0997</a>
+                </p>
+                <p><strong>Email:</strong> <a href="mailto:modcupagreen@gmail.com" style={{ textDecoration: "none", color: "white" }}>modcupagreen@gmail.com</a></p>
+                <p><strong>Opening Time :</strong> <br />10:00 am to 06:00 pm (Sunday Closed)</p>
               </div>
 
               {/* Subscribe Section */}

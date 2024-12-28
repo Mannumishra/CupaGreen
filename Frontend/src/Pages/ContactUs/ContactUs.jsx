@@ -64,12 +64,30 @@ const ContactUs = () => {
               <div className="col-md-6">
                 <div>
                   <h4>Address</h4>
-                  <p>2464 Royal Ln. Mesa, New Jersey 45463</p>
+                  <p> <strong>Head Office :</strong> 143, DDA Market, Rajouri Garden, Opposite Surya Grand Hotel, New Delhi-110027</p>
+                  <p><strong>Registered Office :</strong> W-17, Rajouri Garden, New Delhi-110027</p>
                 </div>
-                <div className="contactnumber">
-                  <h4>Phone</h4>
-                  <a href="tel:+91xxxxxxxxxx">+91 (8000)234-65-7</a> /{" "}
-                  <a href="tel:+91xxxxxxxxxx">(8000) 999-23-59</a>
+                <div>
+                  <h4>Email</h4>
+                  <p><a href="mailto:modcupagreen@gmail.com" style={{textDecoration:"none" ,color:"black"}}>modcupagreen@gmail.com</a></p>
+                </div>
+
+                <div class="contactnumber">
+                  <h4>Contact</h4>
+                  <p>
+                    <a href="tel:+918700819378">+91-8700819378</a> /
+                    <a href="tel:+919811303100">9811303100</a>
+                  </p>
+
+                  <h4 class="mt-2">Office Contact</h4>
+                  <p>
+                    <a href="tel:+911145520997">011-4552-0997</a>
+                  </p>
+                </div>
+
+                <div className="mt-2">
+                  <h4>Opening Time</h4>
+                  <p>10:00 am to 06:00 pm (Sunday Closed)</p>
                 </div>
                 <div className="mt-3">
                   <h4>Social Media</h4>
