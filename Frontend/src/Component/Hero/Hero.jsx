@@ -53,7 +53,7 @@ function Hero() {
 
   const getApiData = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/all-banner")
+      const res = await axios.get("https://api.cupagreen.com/api/all-banner")
       console.log(res)
       if (res.status === 200) {
         const newData = res.data
@@ -116,7 +116,7 @@ function Hero() {
           >
             {data.map((image, index) => (
               <SwiperSlide key={index}>
-                <img src={`http://localhost:8000/${image.bannerImage}`} className="w-100" alt={`Slide ${index + 1}`} />
+                <img src={`https://api.cupagreen.com/${image.bannerImage}`} className="w-100" alt={`Slide ${index + 1}`} />
               </SwiperSlide>
             ))}
           </Swiper>

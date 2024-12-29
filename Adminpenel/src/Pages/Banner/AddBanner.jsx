@@ -24,7 +24,7 @@ const AddBanner = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/add-banners", // Adjusted API endpoint
+        "https://api.cupagreen.com/api/add-banners", // Adjusted API endpoint
         formData,
         {
           headers: {

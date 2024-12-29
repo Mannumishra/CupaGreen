@@ -16,7 +16,7 @@ const EditBanner = () => {
     const fetchBanner = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/single-banner/${id}` // Adjusted API endpoint
+          `https://api.cupagreen.com/api/single-banner/${id}` // Adjusted API endpoint
         );
         setBannerStatus(response.data.bannerStatus); // Convert string to boolean
         setBannerImage(response.data.bannerImage); // Set existing image
@@ -42,7 +42,7 @@ const EditBanner = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/update-banner/${id}`, // Adjusted API endpoint
+        `https://api.cupagreen.com/api/update-banner/${id}`, // Adjusted API endpoint
         formData,
         {
           headers: {
@@ -91,7 +91,7 @@ const EditBanner = () => {
             {bannerImage && typeof bannerImage === "string" && (
               <div className="mt-2">
                 <img
-                  src={`http://localhost:8000/${bannerImage}`}
+                  src={`https://api.cupagreen.com/${bannerImage}`}
                   alt="Current Banner"
                   style={{ width: "100px", height: "auto" }}
                 />

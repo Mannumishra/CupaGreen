@@ -12,7 +12,7 @@ const AllBanner = () => {
     useEffect(() => {
         const fetchBanners = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/all-banner'); // Adjust endpoint as per your backend
+                const response = await axios.get('https://api.cupagreen.com/api/all-banner'); // Adjust endpoint as per your backend
                 setBanners(response.data);
             } catch (error) {
                 toast.error("Failed to load banners");
@@ -35,7 +35,7 @@ const AllBanner = () => {
 
         if (confirmDelete.isConfirmed) {
             try {
-                await axios.delete(`http://localhost:8000/api/delete-banner/${id}`); // Adjust endpoint as per your backend
+                await axios.delete(`https://api.cupagreen.com/api/delete-banner/${id}`); // Adjust endpoint as per your backend
                 setBanners(banners.filter(banner => banner._id !== id));
                 toast.success("Banner deleted successfully");
             } catch (error) {
@@ -74,7 +74,7 @@ const AllBanner = () => {
                                     <th scope="row">{index + 1}</th>
                                     <td>
                                         <img 
-                                            src={`http://localhost:8000/${banner.bannerImage}`} 
+                                            src={`https://api.cupagreen.com/${banner.bannerImage}`} 
                                             alt={`Banner ${index + 1}`} 
                                             style={{ width: '100px', height: 'auto' }} 
                                         />
