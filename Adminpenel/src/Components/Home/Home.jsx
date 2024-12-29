@@ -15,6 +15,9 @@ import EditProduct from '../../Pages/Products/EditProduct'
 import AllProductEnquery from '../../Pages/ProductEnquery/AllProductEnquery'
 import ContactEnquery from '../../Pages/ContactEnquery/ContactEnquery'
 import Login from '../auth/Login'
+import AllBanner from '../../Pages/Banner/AllBanner'
+import AddBanner from '../../Pages/Banner/AddBanner'
+import EditBanner from '../../Pages/Banner/EditBanner'
 
 const Home = () => {
   const isLoggedIn = sessionStorage.getItem("login");
@@ -28,6 +31,11 @@ const Home = () => {
             <div className="rightside">
               <Routes>
                 <Route path={"/dashboard"} element={<Dashboard />} />
+
+                {/* Banner --  */}
+                <Route path={"/all-banner"} element={<AllBanner />} />
+                <Route path={"/add-banner"} element={<AddBanner />} />
+                <Route path={"/edit-banner/:id"} element={<EditBanner />} />
 
                 {/* Category --  */}
                 <Route path={"/all-category"} element={<AllCategory />} />

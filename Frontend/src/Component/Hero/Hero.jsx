@@ -1,5 +1,9 @@
 import React from "react";
 import "./hero.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules"; // Correct import for modules
 import product1 from "../../Images/product1.png";
 import product2 from "../../Images/product2.png";
 import product3 from "../../Images/product3.png";
@@ -10,6 +14,12 @@ import product7 from "../../Images/product7.png";
 import product8 from "../../Images/product8.png";
 import product9 from "../../Images/product9.png";
 import diwali from "../../Images/diwali.png";
+import { useState } from "react";
+
+import axios from "axios"
+import { useEffect } from "react";
+
+
 function Hero() {
   const products = [
     {
@@ -38,6 +48,27 @@ function Hero() {
       ],
     },
   ];
+
+  const [data, setData] = useState([])
+
+  const getApiData = async () => {
+    try {
+      const res = await axios.get("http://localhost:8000/api/all-banner")
+      console.log(res)
+      if (res.status === 200) {
+        const newData = res.data
+        const fileterData = newData.filter((x) => x.bannerStatus === true)
+        setData(fileterData)
+        console.log(data)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getApiData()
+  }, [])
 
   return (
     <>
@@ -74,7 +105,21 @@ function Hero() {
           </div>
         </div>
         <section className="divaliImage mt-3">
-          <img src={diwali} className="w-100" alt="" />
+          <Swiper
+            autoplay={{
+              delay: 5000, // 10 seconds
+              disableOnInteraction: false,
+            }}
+            pagination={{ clickable: true }}
+            modules={[Pagination, Autoplay]} // Register Autoplay module
+            className="mySwiper"
+          >
+            {data.map((image, index) => (
+              <SwiperSlide key={index}>
+                <img src={`http://localhost:8000/${image.bannerImage}`} className="w-100" alt={`Slide ${index + 1}`} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </section>
       </section>
     </>

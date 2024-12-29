@@ -9,6 +9,7 @@ const SubcategoryRouter = require("./Routes/subcategoryRoutes")
 const ProductRouter = require("./Routes/ProductRoutes")
 const ProductInqueryRouter = require("./Routes/ProductInqueryRouter")
 const ContactRouter = require("./Routes/ContactRouter")
+const BannerRouter = require("./Routes/BannerRouter")
 
 const app = express()
 // // CORS Configuration
@@ -34,6 +35,7 @@ app.use("/api", SubcategoryRouter)
 app.use("/api", ProductRouter)
 app.use("/api", ProductInqueryRouter)
 app.use("/api", ContactRouter)
+app.use("/api", BannerRouter)
 
 app.listen(process.env.PORT, () => {
     console.log(`Server Is Running At ${process.env.PORT}`)
