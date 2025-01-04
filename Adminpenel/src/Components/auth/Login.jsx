@@ -41,9 +41,9 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   className="form-control"
                 />
-                <button 
-                  type="button" 
-                  className="show-password" 
+                <button
+                  type="button"
+                  className="show-password"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? 'Hide' : 'Show'}

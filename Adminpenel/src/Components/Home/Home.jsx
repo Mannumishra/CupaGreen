@@ -18,6 +18,9 @@ import Login from '../auth/Login'
 import AllBanner from '../../Pages/Banner/AllBanner'
 import AddBanner from '../../Pages/Banner/AddBanner'
 import EditBanner from '../../Pages/Banner/EditBanner'
+import AllMainBanner from '../../Pages/MainBanner/AllMainBanner'
+import AddMainBanner from '../../Pages/MainBanner/AddMainBanner'
+import EditMainBanner from '../../Pages/MainBanner/EditMainBanner'
 
 const Home = () => {
   const isLoggedIn = sessionStorage.getItem("login");
@@ -36,6 +39,11 @@ const Home = () => {
                 <Route path={"/all-banner"} element={<AllBanner />} />
                 <Route path={"/add-banner"} element={<AddBanner />} />
                 <Route path={"/edit-banner/:id"} element={<EditBanner />} />
+
+                {/* Banner --  */}
+                <Route path={"/all-mainbanner"} element={<AllMainBanner />} />
+                <Route path={"/add-mainbanner"} element={<AddMainBanner />} />
+                <Route path={"/edit-mainbanner/:id"} element={<EditMainBanner />} />
 
                 {/* Category --  */}
                 <Route path={"/all-category"} element={<AllCategory />} />
@@ -57,7 +65,7 @@ const Home = () => {
                 <Route path={"/all-product-enquery"} element={<AllProductEnquery />} />
                 <Route path={"/all-contact-enquery"} element={<ContactEnquery />} />
 
-  
+
                 {/* all-shop */}
 
               </Routes>

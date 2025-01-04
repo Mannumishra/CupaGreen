@@ -56,8 +56,7 @@ const Footer = () => {
               <div className="col-md-3 footermb">
                 <h4>Subscribe</h4>
                 <p>
-                  Sed ut amet rai in velit veniam bibendum in nec nisi. Etiam
-                  ethehdf dui vitae sem.
+                Never miss out on the latest updates, exclusive offers, and expert insights. Join our community to stay informed about:
                 </p>
                 <div className="input-group footermb">
                   <input

@@ -14,6 +14,7 @@ import product7 from "../../Images/product7.png";
 import product8 from "../../Images/product8.png";
 import product9 from "../../Images/product9.png";
 import diwali from "../../Images/diwali.png";
+import banner from "../../Images/Section.png"
 import { useState } from "react";
 
 import axios from "axios"
@@ -48,6 +49,22 @@ function Hero() {
       ],
     },
   ];
+  const [mainBanner, setMainBanner] = useState([])
+
+  const getBannerData = async () => {
+    try {
+      const res = await axios.get("https://api.cupagreen.com/api/all-mainbanner")
+      console.log(res)
+      if (res.status === 200) {
+        const newData = res.data
+        const fileterData = newData.filter((x) => x.bannerStatus === true)
+        setMainBanner(fileterData)
+        console.log(data)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const [data, setData] = useState([])
 
@@ -68,11 +85,28 @@ function Hero() {
 
   useEffect(() => {
     getApiData()
+    getBannerData()
   }, [])
 
   return (
     <>
-      <section className="hero"></section>
+      <section className="hero">
+        <Swiper
+          autoplay={{
+            delay: 5000, // 10 seconds
+            disableOnInteraction: false,
+          }}
+          pagination={{ clickable: true }}
+          modules={[Pagination, Autoplay]} // Register Autoplay module
+          className="mySwiper"
+        >
+          {mainBanner.map((image, index) => (
+            <SwiperSlide key={index}>
+              <img src={`https://api.cupagreen.com/${image.bannerImage}`} className="w-100" alt={`Slide ${index + 1}`} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
       <section className="productCard_hero">
         <div className="container-fluid">
           <div className="row">
