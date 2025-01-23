@@ -112,7 +112,7 @@ const ContactUs = () => {
                         </a>
                       </li>
 
-                      <li className="social-btn pinterest" tooltip="Pinterest">
+                      {/* <li className="social-btn pinterest" tooltip="Pinterest">
                         <a href="#">
                           <i className="bi bi-pinterest"></i>
                         </a>
@@ -121,7 +121,7 @@ const ContactUs = () => {
                         <a href="#">
                           <i className="bi bi-linkedin"></i>
                         </a>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                 </div>
