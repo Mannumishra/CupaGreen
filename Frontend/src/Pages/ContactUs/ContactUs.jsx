@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import contactImage from "../../Images/contact.png";
+import contactImage from "../../Images/cupaContact.jpg";
 import Swal from "sweetalert2"; // Import SweetAlert2
 import "./contact.css";
 import axios from "axios";
@@ -65,11 +65,11 @@ const ContactUs = () => {
                 <div>
                   <h4>Address</h4>
                   <p> <strong>Head Office :</strong> 143, DDA Market, Rajouri Garden, Opposite Surya Grand Hotel, New Delhi-110027</p>
-                  <p><strong>Registered Office :</strong> W-17, Rajouri Garden, New Delhi-110027</p>
+                  <p><strong>Registered Office :</strong> W-17, Rajouri Garden, New Delhi, India (110027)</p>
                 </div>
                 <div>
                   <h4>Email</h4>
-                  <p><a href="mailto:modcupagreen@gmail.com" style={{textDecoration:"none" ,color:"black"}}>modcupagreen@gmail.com</a></p>
+                  <p><a href="mailto: modcupagreen@gmail.com" style={{ textDecoration: "none", color: "black" }}> modcupagreen@gmail.com</a></p>
                 </div>
 
                 <div class="contactnumber">
@@ -78,7 +78,14 @@ const ContactUs = () => {
                     <a href="tel:+918700819378">+91-8700819378</a> /
                     <a href="tel:+919811303100">9811303100</a>
                   </p>
-
+                  <p><strong>Registered Office :</strong> Leetha Arcade, 41/567 A, South Kalamassery, Kerala, India (683104)</p>
+                  <h4>Email</h4>
+                  <p><a href="mailto: modcupagreen@gmail.com" style={{ textDecoration: "none", color: "black" }}> modcupagreen@gmail.com</a></p>
+                  <h4>Contact</h4>
+                  <p>
+                    <a href="tel:+919315555917">+91-9315555917</a> /
+                    <a href="tel:+918700819378">8700819378</a>
+                  </p>
                   <h4 class="mt-2">Office Contact</h4>
                   <p>
                     <a href="tel:+911145520997">011-4552-0997</a>
@@ -94,15 +101,17 @@ const ContactUs = () => {
                   <div>
                     <ul className="social-menu">
                       <li className="social-btn facebook" tooltip="Facebook">
-                        <a href="#">
+                        <a href="https://www.facebook.com/Cupagreen/" target="_blank" rel="noopener noreferrer">
                           <i className="bi bi-facebook"></i>
                         </a>
                       </li>
+
                       <li className="social-btn instagram" tooltip="Instagram">
-                        <a href="#">
+                        <a href="https://www.instagram.com/cupagreen?igsh=aWhxYXo2d25rN2Ez" target="_blank" rel="noopener noreferrer">
                           <i className="bi bi-instagram"></i>
                         </a>
                       </li>
+
                       <li className="social-btn pinterest" tooltip="Pinterest">
                         <a href="#">
                           <i className="bi bi-pinterest"></i>
@@ -185,15 +194,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="mt-3">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2765.1887443904293!2d77.08410077429787!3d28.730771579614938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d07440faeeedd%3A0x7fd3b4b030819bdf!2sDigi%20India%20Solutions!5e1!3m2!1sen!2sin!4v1730200303898!5m2!1sen!2sin"
-              width="100%"
-              height="450"
-              style={{ border: "0" }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.7081429042573!2d77.1203393!3d28.638508100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d036b9e5590c1%3A0xe98826ad8a82f3f0!2sCUPAGREEN%20The%20Cup%20Company!5e0!3m2!1sen!2sin!4v1737617265540!5m2!1sen!2sin" width="100%" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
