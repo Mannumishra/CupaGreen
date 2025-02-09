@@ -13,14 +13,20 @@ const BannerRouter = require("./Routes/BannerRouter")
 const MainBannerRouter = require("./Routes/MainBannerRouter")
 
 const app = express()
-// // CORS Configuration
-// const corsOptions = {
-//     origin: ["http://localhost:3001", "https://www.api.cupagreen.com"],
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true,
-// };
-// app.use(cors(corsOptions));
-app.use(cors())
+const cors = require("cors");
+
+const corsOptions = {
+    origin: [
+        "https://www.cupagreen.com",
+        "https://cupagreen.com",
+        "https://api.cupagreen.com"
+    ],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json())
 
 app.set(express.static("./Public"))
