@@ -13,7 +13,6 @@ const BannerRouter = require("./Routes/BannerRouter")
 const MainBannerRouter = require("./Routes/MainBannerRouter")
 
 const app = express()
-const cors = require("cors");
 
 const corsOptions = {
     origin: [
