@@ -18,7 +18,8 @@ const corsOptions = {
     origin: [
         "https://www.cupagreen.com",
         "https://cupagreen.com",
-        "https://api.cupagreen.com"
+        "https://api.cupagreen.com",
+        "https://admin.cupagreen.com"
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
